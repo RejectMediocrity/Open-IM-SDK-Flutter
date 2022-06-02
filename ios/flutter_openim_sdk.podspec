@@ -18,6 +18,8 @@ A new Flutter project.
   s.platform = :ios, '8.0'
 
   s.dependency 'OpenIMSDKCore','2.0.9'
+  s.source = { :git => 'https://github.com/RejectMediocrity/OpenImCore.git',
+                           :branch =>  'dev'}
   s.static_framework = true
   # s.vendored_frameworks = 'Framework/*.framework'
   # Flutter.framework does not contain a i386 slice.
