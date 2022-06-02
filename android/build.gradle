@@ -3,12 +3,15 @@ version '1.0'
 
 buildscript {
     repositories {
-        maven {
-            url 'http://121.37.25.71:8081/repository/maven2/'
-            allowInsecureProtocol = true
-        }
+//        maven {
+//            url 'http://121.37.25.71:8081/repository/maven2/'
+//            allowInsecureProtocol = true
+//        }
         google()
         mavenCentral()
+        flatDir{
+            dirs 'libs'
+        }
     }
 
     dependencies {
@@ -18,12 +21,15 @@ buildscript {
 
 rootProject.allprojects {
     repositories {
-        maven {
-            url 'http://121.37.25.71:8081/repository/maven2/'
-            allowInsecureProtocol = true
-        }
+//        maven {
+//            url 'http://121.37.25.71:8081/repository/maven2/'
+//            allowInsecureProtocol = true
+//        }
         google()
         mavenCentral()
+        flatDir{
+            dirs 'libs'
+        }
     }
 }
 
@@ -41,5 +47,6 @@ android {
     }
 }
 dependencies {
-    implementation 'io.openim:core-sdk:2.0.9.6@aar'
+//    implementation 'io.openim:core-sdk:2.0.9.6@aar'
+    implementation (name:"OpenIMCore",ext:"aar")
 }
