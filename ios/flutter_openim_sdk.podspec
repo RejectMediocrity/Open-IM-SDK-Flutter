@@ -17,7 +17,7 @@ A new Flutter project.
   s.dependency 'Flutter'
   s.platform = :ios, '8.0'
 
-  s.dependency 'OpenIMSDKCore','2.0.9+5.1'
+  s.dependency 'OpenIMSDKCore','2.0.9+5.2'
   s.source = { :git => 'https://github.com/RejectMediocrity/OpenImCore.git',
                            :branch =>  'dev'}
   s.static_framework = true
