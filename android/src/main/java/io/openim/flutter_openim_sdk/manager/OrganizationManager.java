@@ -44,7 +44,11 @@ public class OrganizationManager extends BaseManager {
         Open_im_sdk.getDepartmentMemberAndSubDepartment(
                 new OnBaseListener(result, methodCall),
                 value(methodCall, "operationID"),
-                value(methodCall, "departmentID")
+                value(methodCall, "departmentID"),
+                value(methodCall, "departmentOffset"),
+                value(methodCall, "departmentCount"),
+                value(methodCall, "memberOffset"),
+                value(methodCall, "memberCount")
         );
     }
 }

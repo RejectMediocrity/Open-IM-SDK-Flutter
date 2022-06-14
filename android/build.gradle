@@ -48,5 +48,6 @@ android {
 }
 dependencies {
 //    implementation 'io.openim:core-sdk:2.0.9.6@aar'
-    implementation (name:"OpenIMCore",ext:"aar")
+//    implementation (name:"OpenIMCore",ext:"aar")
+    implementation fileTree(dir: "libs", include: ["OpenIMCore.aar"])
 }
