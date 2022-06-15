@@ -30,6 +30,10 @@ public class UserManager: BaseServiceManager {
 }
 
 public class UserListener: NSObject, Open_im_sdk_callbackOnUserListenerProtocol {
+    public func onUserQuit(_ userInfo: String?) {
+        
+    }
+    
     
     private let channel:FlutterMethodChannel
 

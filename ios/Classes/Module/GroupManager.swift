@@ -118,6 +118,10 @@ public class GroupManager: BaseServiceManager {
 }
 
 public class GroupListener: NSObject, Open_im_sdk_callbackOnGroupListenerProtocol {
+    public func onUserQuit(_ userInfo: String?) {
+        
+    }
+    
     
     private let channel:FlutterMethodChannel
     
