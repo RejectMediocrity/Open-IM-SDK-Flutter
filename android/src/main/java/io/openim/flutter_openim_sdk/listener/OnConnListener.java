@@ -13,11 +13,6 @@ public class OnConnListener implements open_im_sdk_callback.OnConnListener {
     }
 
     @Override
-    public void onPingPing() {
-
-    }
-
-    @Override
     public void onUpgradeNotice() {
 
     }

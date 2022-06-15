@@ -8,4 +8,9 @@ public class OnUserListener implements open_im_sdk_callback.OnUserListener {
     public void onSelfInfoUpdated(String s) {
         CommonUtil.emitEvent("userListener", "onSelfInfoUpdated", s);
     }
+
+    @Override
+    public void onUserQuit(String s) {
+
+    }
 }
