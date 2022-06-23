@@ -53,9 +53,4 @@ public class OnGroupListener implements open_im_sdk_callback.OnGroupListener {
     public void onJoinedGroupDeleted(String s) {
         CommonUtil.emitEvent("groupListener", "onJoinedGroupDeleted", s);
     }
-
-    @Override
-    public void onUserQuit(String s) {
-
-    }
 }
