@@ -26,6 +26,8 @@ public class GroupManager: BaseServiceManager {
         self["changeGroupMemberMute"] = changeGroupMemberMute
         self["setGroupMemberNickname"] = setGroupMemberNickname
         self["searchGroups"] = searchGroups
+        self["setGroupMemberRoleLevel"] = setGroupMemberRoleLevel
+        self["getGroupMemberListByJoinTimeFilter"] = getGroupMemberListByJoinTimeFilter
     }
 
     func setGroupListener(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
@@ -114,6 +116,14 @@ public class GroupManager: BaseServiceManager {
     
     func searchGroups(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
         Open_im_sdkSearchGroups(BaseCallback(result: result), methodCall[string: "operationID"], methodCall[jsonString: "searchParam"])
+    }
+    
+    func setGroupMemberRoleLevel(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
+        Open_im_sdkSetGroupMemberRoleLevel(BaseCallback(result: result), methodCall[string: "operationID"], methodCall[string: "groupID"], methodCall[string:"userID"],methodCall[int:"roleLevel"])
+    }
+    
+    func getGroupMemberListByJoinTimeFilter(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
+        Open_im_sdkGetGroupMemberListByJoinTimeFilter(BaseCallback(result: result), methodCall[string: "operationID"], methodCall[string: "groupID"], methodCall[int32: "offset"], methodCall[int32: "count"], methodCall[int64: "joinTimeBegin"], methodCall[int64: "joinTimeEnd"], methodCall[jsonString: "excludeUserIDList"])
     }
 }
 

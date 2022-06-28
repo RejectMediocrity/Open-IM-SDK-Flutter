@@ -190,4 +190,25 @@ public class GroupManager extends BaseManager {
                 jsonValue(methodCall, "searchParam")
         );
     }
+
+    public void setGroupMemberRoleLevel(MethodCall methodCall, MethodChannel.Result result) {
+        Open_im_sdk.setGroupMemberRoleLevel(new OnBaseListener(result, methodCall),
+                value(methodCall, "operationID"),
+                value(methodCall, "groupID"),
+                value(methodCall, "userID"),
+                int2long(methodCall, "roleLevel")
+        );
+    }
+
+    public void getGroupMemberListByJoinTimeFilter(MethodCall methodCall, MethodChannel.Result result) {
+        Open_im_sdk.getGroupMemberListByJoinTimeFilter(new OnBaseListener(result, methodCall),
+                value(methodCall, "operationID"),
+                value(methodCall, "groupID"),
+                value(methodCall, "offset"),
+                value(methodCall, "count"),
+                int2long(methodCall, "joinTimeBegin"),
+                int2long(methodCall, "joinTimeEnd"),
+                jsonValue(methodCall, "excludeUserIDList")
+        );
+    }
 }
