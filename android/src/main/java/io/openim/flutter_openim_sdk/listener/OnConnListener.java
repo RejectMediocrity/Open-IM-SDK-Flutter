@@ -26,9 +26,18 @@ public class OnConnListener implements open_im_sdk_callback.OnConnListener {
         CommonUtil.emitEvent("connectListener", "onKickedOffline", null);
     }
 
-
     @Override
     public void onUserTokenExpired() {
         CommonUtil.emitEvent("connectListener", "onUserTokenExpired", null);
+    }
+    // PC 端专用
+    @Override
+    public void onUpgradeNotice() {
+
+    }
+
+    @Override
+    public void onKickedFromMobile() {
+
     }
 }

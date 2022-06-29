@@ -201,14 +201,14 @@ public class GroupManager extends BaseManager {
     }
 
     public void getGroupMemberListByJoinTimeFilter(MethodCall methodCall, MethodChannel.Result result) {
-        Open_im_sdk.getGroupMemberListByJoinTimeFilter(new OnBaseListener(result, methodCall),
-                value(methodCall, "operationID"),
-                value(methodCall, "groupID"),
-                value(methodCall, "offset"),
-                value(methodCall, "count"),
-                int2long(methodCall, "joinTimeBegin"),
-                int2long(methodCall, "joinTimeEnd"),
-                jsonValue(methodCall, "excludeUserIDList")
-        );
+//        Open_im_sdk.getGroupMemberListByJoinTimeFilter(new OnBaseListener(result, methodCall),
+//                value(methodCall, "operationID"),
+//                value(methodCall, "groupID"),
+//                value(methodCall, "offset"),
+//                value(methodCall, "count"),
+//                int2long(methodCall, "joinTimeBegin"),
+//                int2long(methodCall, "joinTimeEnd"),
+//                jsonValue(methodCall, "excludeUserIDList")
+//        );
     }
 }
