@@ -30,17 +30,13 @@ public class UserManager: BaseServiceManager {
 }
 
 public class UserListener: NSObject, Open_im_sdk_callbackOnUserListenerProtocol {
-    public func onUserQuit(_ userInfo: String?) {
-        
-    }
-    
-    
+
     private let channel:FlutterMethodChannel
 
     init(channel:FlutterMethodChannel) {
         self.channel = channel
     }
-    
+
     public func onSelfInfoUpdated(_ userInfo: String?) {
         CommonUtil.emitEvent(channel: self.channel, method: "userListener", type: "onSelfInfoUpdated", errCode: nil, errMsg: nil, data: userInfo)
     }

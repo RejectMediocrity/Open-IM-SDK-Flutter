@@ -1,27 +1,10 @@
 package io.openim.flutter_openim_sdk.listener;
 
 
-import androidx.annotation.NonNull;
-
 import io.openim.flutter_openim_sdk.util.CommonUtil;
 
 
 public class OnConnListener implements open_im_sdk_callback.OnConnListener {
-    @Override
-    public void onKickedFromMobile() {
-
-    }
-
-    @Override
-    public void onUpgradeNotice() {
-
-    }
-
-    @NonNull
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
-    }
 
     @Override
     public void onConnectFailed(int i, String s) {
