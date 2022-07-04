@@ -245,6 +245,17 @@ class ConversationManager {
             "operationID": Utils.checkOperationID(operationID),
           }));
 
+  /// 重置消息未读数
+  Future<dynamic> resetConversationUnreadMsgTotal({
+    required String conversationID,
+    String? operationID,
+  }) =>
+      _channel.invokeMethod(
+          'resetConversationUnreadMsgTotal',
+          _buildParam({
+            "conversationID": conversationID,
+            "operationID": Utils.checkOperationID(operationID),
+          }));
   /// 查询@所有人标识
   Future<dynamic> getAtAllTag() =>
       _channel.invokeMethod('getAtAllTag', _buildParam({}));

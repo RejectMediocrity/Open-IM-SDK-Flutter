@@ -30,6 +30,11 @@ public class UserManager: BaseServiceManager {
 }
 
 public class UserListener: NSObject, Open_im_sdk_callbackOnUserListenerProtocol {
+    // feature_user_quit分之专有方法
+    public func onUserQuit(_ userInfo: String?) {
+        
+    }
+    
 
     private let channel:FlutterMethodChannel
 

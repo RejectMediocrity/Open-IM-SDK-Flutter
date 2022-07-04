@@ -25,6 +25,7 @@ public class ConversationManager: BaseServiceManager {
         self["resetConversationGroupAtType"] = resetConversationGroupAtType
         self["getAtAllTag"] = getAtAllTag
         self["setGlobalRecvMessageOpt"] = setGlobalRecvMessageOpt
+        self["resetConversationUnreadMsgTotal"] = resetConversationUnreadMsgTotal
     }
     
     func setConversationListener(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
@@ -107,6 +108,10 @@ public class ConversationManager: BaseServiceManager {
     
     func setGlobalRecvMessageOpt(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
         Open_im_sdkSetGlobalRecvMessageOpt(BaseCallback(result: result), methodCall[string: "operationID"], methodCall[int: "status"])
+    }
+    
+    func resetConversationUnreadMsgTotal(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
+        Open_im_sdkResetConversationUnreadMsgTotal(BaseCallback(result: result), methodCall[string: "conversationID"], methodCall[string: "operationID"])
     }
 }
 

@@ -162,4 +162,12 @@ public class ConversationManager extends BaseManager {
                 int2long(methodCall, "status")
         );
     }
+    public void resetConversationUnreadMsgTotal(MethodCall methodCall, MethodChannel.Result result) {
+        Open_im_sdk.resetConversationUnreadMsgTotal(
+                new OnBaseListener(result, methodCall),
+                value(methodCall, "conversationID"),
+                value(methodCall, "operationID")
+
+        );
+    }
 }

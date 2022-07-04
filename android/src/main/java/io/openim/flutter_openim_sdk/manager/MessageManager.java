@@ -389,4 +389,13 @@ public class MessageManager extends BaseManager {
                 jsonValue(methodCall)
         );
     }
+    public void quickReply(MethodCall methodCall, MethodChannel.Result result) {
+        Open_im_sdk.quickReply(
+                new OnBaseListener(result, methodCall),
+                value(methodCall, "serverMsgID"),
+                value(methodCall, "expression"),
+                int2long(methodCall, "cancel"),
+                value(methodCall, "operationID")
+        );
+    }
 }

@@ -690,4 +690,23 @@ class MessageManager {
     param["ManagerName"] = "messageManager";
     return param;
   }
+
+  /// 表情快捷回复
+  /// [serverMsgID] 服务器消息ID
+  /// [expression] 表情expression
+  /// [cancel] 0添加，1取消
+  Future<dynamic> quickReply({
+    required String serverMsgID,
+    required String expression,
+    required int cancel,
+    String? operationID,
+  }) =>
+      _channel.invokeMethod(
+          'quickReply',
+          _buildParam({
+            "serverMsgID": serverMsgID,
+            "expression": expression,
+            "cancel": cancel,
+            "operationID": Utils.checkOperationID(operationID),
+          }));
 }
