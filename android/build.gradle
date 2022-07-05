@@ -58,6 +58,5 @@ android {
     }
 }
 dependencies {
-//    implementation 'io.openim:core-sdk:2.0.9.6@aar'
-    implementation 'com.mind:AndroidSDK:2.2.0.1'
+    implementation 'com.mind:AndroidSDK:2.2.0.2'
 }
