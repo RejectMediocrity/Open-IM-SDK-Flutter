@@ -215,7 +215,7 @@ public class MessageManager: BaseServiceManager {
         Open_im_sdkGetHistoryMessageListReverse(BaseCallback(result: result), methodCall[string: "operationID"], methodCall.toJsonString())
     }
     func quickReply(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
-        Open_im_sdkQuickReply(BaseCallback(result: result), methodCall[string: "serverMsgID"], methodCall[string: "expression"], methodCall[int: "cancel"], methodCall[string: "operationID"])
+        Open_im_sdkQuickReply(BaseCallback(result: result), methodCall[string: "clientMsgID"], methodCall[string: "expression"], methodCall[int: "cancel"], methodCall[string: "operationID"])
     }
 
     public class SendMsgProgressListener: NSObject, Open_im_sdk_callbackSendMsgCallBackProtocol {

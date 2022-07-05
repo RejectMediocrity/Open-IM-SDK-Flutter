@@ -692,11 +692,11 @@ class MessageManager {
   }
 
   /// 表情快捷回复
-  /// [serverMsgID] 服务器消息ID
+  /// [clientMsgID] 服务器消息ID
   /// [expression] 表情expression
   /// [cancel] 0添加，1取消
   Future<dynamic> quickReply({
-    required String serverMsgID,
+    required String clientMsgID,
     required String expression,
     required int cancel,
     String? operationID,
@@ -704,7 +704,7 @@ class MessageManager {
       _channel.invokeMethod(
           'quickReply',
           _buildParam({
-            "serverMsgID": serverMsgID,
+            "clientMsgID": clientMsgID,
             "expression": expression,
             "cancel": cancel,
             "operationID": Utils.checkOperationID(operationID),
