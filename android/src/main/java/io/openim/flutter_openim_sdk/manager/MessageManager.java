@@ -396,6 +396,12 @@ public class MessageManager extends BaseManager {
                 value(methodCall, "expression"),
                 int2long(methodCall, "cancel"),
                 value(methodCall, "operationID")
+
+    public void newRevokeMessage(MethodCall methodCall, MethodChannel.Result result) {
+        Open_im_sdk.newRevokeMessage(
+                new OnBaseListener(result, methodCall),
+                value(methodCall, "operationID"),
+                jsonValue(methodCall)
         );
     }
 }

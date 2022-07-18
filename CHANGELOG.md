@@ -1,3 +1,20 @@
+## 2.3.0
+
+- Fix bug
+- Super group
+- Add setGroupLookMemberInfo method for GroupManager
+- Add setGroupApplyMemberFriend method for GroupManager
+- Add getGroupOwnerAndAdmin method for GroupManager
+- Add revokeMessageV2 method for MessageManager
+- Add lookMemberInfo field for GroupInfo
+- Add applyMemberFriend field for GroupInfo
+- Add notificationUpdateTime field for GroupInfo
+- Add notificationUserID field for GroupInfo
+- Add inviterUserID field for GroupMembersInfo
+- Add joinSource field for joinGroup method
+- Add advanced revoke type
+- Add recvMessageRevokedV2 callback for OnAdvancedMsgListener
+
 ## 2.2.0
 
 1.Fix bug </br>
