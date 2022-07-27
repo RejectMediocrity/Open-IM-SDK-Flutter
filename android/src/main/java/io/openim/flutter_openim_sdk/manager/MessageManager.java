@@ -409,4 +409,12 @@ public class MessageManager extends BaseManager {
                 jsonValue(methodCall)
         );
     }
+
+    public void getRobotMessages(MethodCall methodCall, MethodChannel.Result result) {
+        Open_im_sdk.getRobotMessages(
+                new OnBaseListener(result, methodCall),
+                value(methodCall, "operationID"),
+                jsonValue(methodCall)
+        );
+    }
 }

@@ -723,4 +723,22 @@ class MessageManager {
             "cancel": cancel,
             "operationID": Utils.checkOperationID(operationID),
           }));
+  Future<List<Message>> getRobotMessages({
+    String? userID,
+    String? conversationID,
+    String? startClientMsgID,
+    int? count,
+    String? operationID,
+  }) =>
+      _channel
+          .invokeMethod(
+          'getRobotMessages',
+          _buildParam({
+            'userID': userID ?? '',
+            'conversationID': conversationID ?? '',
+            'startClientMsgID': startClientMsgID ?? '',
+            'count': count ?? 20,
+            'operationID': Utils.checkOperationID(operationID),
+          }))
+          .then((value) => Utils.toList(value, (map) => Message.fromJson(map)));
 }

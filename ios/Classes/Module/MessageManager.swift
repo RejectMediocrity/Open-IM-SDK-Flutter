@@ -46,6 +46,11 @@ public class MessageManager: BaseServiceManager {
         self["getHistoryMessageListReverse"] = getHistoryMessageListReverse
         self["quickReply"] = quickReply
         self["newRevokeMessage"] = newRevokeMessage
+        self["getRobotMessages"] = getRobotMessages
+    }
+    
+    func getRobotMessages(methodCall: FlutterMethodCall, result: @escaping FlutterResult) {
+        Open_im_sdkGetRobotMessages(BaseCallback(result: result), methodCall[string: "operationID"], methodCall.toJsonString())
     }
     
     func setAdvancedMsgListener(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
