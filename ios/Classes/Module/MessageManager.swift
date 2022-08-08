@@ -47,6 +47,7 @@ public class MessageManager: BaseServiceManager {
         self["quickReply"] = quickReply
         self["newRevokeMessage"] = newRevokeMessage
         self["getRobotMessages"] = getRobotMessages
+        self["getAdvancedHistoryMessageList"] = getAdvancedHistoryMessageList
     }
     
     func getRobotMessages(methodCall: FlutterMethodCall, result: @escaping FlutterResult) {
@@ -226,6 +227,10 @@ public class MessageManager: BaseServiceManager {
     
     func newRevokeMessage(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
         Open_im_sdkNewRevokeMessage(BaseCallback(result: result), methodCall[string: "operationID"], methodCall.toJsonString())
+    }
+    
+    func getAdvancedHistoryMessageList(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
+        Open_im_sdkGetAdvancedHistoryMessageList(BaseCallback(result: result), methodCall[string: "operationID"], methodCall.toJsonString())
     }
 }
 public class SendMsgProgressListener: NSObject, Open_im_sdk_callbackSendMsgCallBackProtocol {

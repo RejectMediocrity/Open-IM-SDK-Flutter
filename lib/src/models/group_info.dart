@@ -205,6 +205,16 @@ class GroupMembersInfo {
     data['inviterUserID'] = this.inviterUserID;
     return data;
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GroupMembersInfo &&
+          runtimeType == other.runtimeType &&
+          userID == other.userID;
+
+  @override
+  int get hashCode => userID.hashCode;
 }
 
 /// 群成员角色
@@ -298,6 +308,12 @@ class GroupApplicationInfo {
   /// 扩展信息
   String? ex;
 
+  /// 2：通过邀请  3：通过搜索  4：通过二维码
+  int? joinSource;
+
+  /// 邀请进群用户ID
+  String? inviterUserID;
+
   GroupApplicationInfo({
     this.groupID,
     this.groupName,
@@ -321,6 +337,8 @@ class GroupApplicationInfo {
     this.handleUserID,
     this.handledTime,
     this.ex,
+    this.inviterUserID,
+    this.joinSource,
   });
 
   GroupApplicationInfo.fromJson(Map<String, dynamic> json) {
@@ -346,6 +364,8 @@ class GroupApplicationInfo {
     handleUserID = json['handleUserID'];
     handledTime = json['handledTime'];
     ex = json['ex'];
+    inviterUserID = json['inviterUserID'];
+    joinSource = json['joinSource'];
   }
 
   Map<String, dynamic> toJson() {
@@ -372,6 +392,8 @@ class GroupApplicationInfo {
     data['handleUserID'] = this.handleUserID;
     data['handledTime'] = this.handledTime;
     data['ex'] = this.ex;
+    data['inviterUserID'] = this.inviterUserID;
+    data['joinSource'] = this.joinSource;
     return data;
   }
 }
