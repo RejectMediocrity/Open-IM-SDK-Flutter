@@ -417,4 +417,12 @@ public class MessageManager extends BaseManager {
                 jsonValue(methodCall)
         );
     }
+
+    public void sendUploadMessage(MethodCall methodCall, MethodChannel.Result result) {
+        Open_im_sdk.sendUploadMessage(
+                new OnMsgSendListener(result, methodCall),
+                value(methodCall, "operationID"),
+                jsonValue(methodCall, "message")
+        );
+    }
 }

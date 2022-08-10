@@ -47,6 +47,7 @@ public class MessageManager: BaseServiceManager {
         self["quickReply"] = quickReply
         self["newRevokeMessage"] = newRevokeMessage
         self["getRobotMessages"] = getRobotMessages
+        self["sendUploadMessage"] = sendUploadMessage
     }
     
     func getRobotMessages(methodCall: FlutterMethodCall, result: @escaping FlutterResult) {
@@ -226,6 +227,11 @@ public class MessageManager: BaseServiceManager {
     
     func newRevokeMessage(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
         Open_im_sdkNewRevokeMessage(BaseCallback(result: result), methodCall[string: "operationID"], methodCall.toJsonString())
+    }
+    
+    func sendUploadMessage(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
+        let sendMsgProgressListener: SendMsgProgressListener = SendMsgProgressListener(channel: channel,result: result,methodCall: methodCall)
+        Open_im_sdkSendUploadMessage(sendMsgProgressListener, methodCall[string: "operationID"], methodCall[jsonString: "message"])
     }
 }
 public class SendMsgProgressListener: NSObject, Open_im_sdk_callbackSendMsgCallBackProtocol {

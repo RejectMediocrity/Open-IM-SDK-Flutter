@@ -723,6 +723,8 @@ class MessageManager {
             "cancel": cancel,
             "operationID": Utils.checkOperationID(operationID),
           }));
+
+  /// 获取机器人消息列表
   Future<List<Message>> getRobotMessages({
     String? userID,
     String? conversationID,
@@ -741,4 +743,22 @@ class MessageManager {
             'operationID': Utils.checkOperationID(operationID),
           }))
           .then((value) => Utils.toList(value, (map) => Message.fromJson(map)));
+
+  /// SDK上传图片的方法
+  /// [message] 消息体
+  Future<Message> sendUploadMessage({
+    required Message message,
+    required OfflinePushInfo offlinePushInfo,
+    String? userID,
+    String? groupID,
+    String? operationID,
+  }) =>
+      _channel
+          .invokeMethod(
+          'sendUploadMessage',
+          _buildParam({
+            'message': message.toJson(),
+            'operationID': Utils.checkOperationID(operationID),
+          }))
+          .then((value) => Utils.toObj(value, (map) => Message.fromJson(map)));
 }
