@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 /// Is a friend not in the blacklist
 /// 是好友不在黑名单
 /// Not a friend on the blacklist
@@ -176,11 +178,15 @@ class UserInfo {
   }
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is UserInfo &&
-          runtimeType == other.runtimeType &&
-          userID == other.userID;
+  bool operator ==(Object other) {
+    try {
+      String thisStr = json.encode(this).trim();
+      String otherStr = json.encode(other).trim();
+      return thisStr == otherStr;
+    } catch (e) {
+      return false;
+    }
+  }
 
   @override
   int get hashCode => userID.hashCode;
