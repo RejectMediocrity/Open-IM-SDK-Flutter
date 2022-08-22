@@ -53,6 +53,15 @@ class GroupInfo {
   /// 通知发起人
   String? notificationUserID;
 
+  /// 归档群组用户ID
+  String? dismissUserID;
+
+  /// 归档时间
+  int? dismissTime;
+
+  /// 归档群组用户名字
+  String? dismissUser;
+
   GroupInfo({
     required this.groupID,
     this.groupName,
@@ -71,6 +80,9 @@ class GroupInfo {
     this.applyMemberFriend,
     this.notificationUpdateTime,
     this.notificationUserID,
+    this.dismissTime,
+    this.dismissUser,
+    this.dismissUserID,
   });
 
   GroupInfo.fromJson(Map<String, dynamic> json) : groupID = json['groupID'] {
@@ -91,6 +103,9 @@ class GroupInfo {
     applyMemberFriend = json['applyMemberFriend'];
     notificationUpdateTime = json['notificationUpdateTime'];
     notificationUserID = json['notificationUserID'];
+    dismissTime = json['dismissTime'];
+    dismissUserID = json['dismissUserID'];
+    dismissUser = json['dismissUser'];
   }
 
   Map<String, dynamic> toJson() {
@@ -112,6 +127,9 @@ class GroupInfo {
     data['applyMemberFriend'] = this.applyMemberFriend;
     data['notificationUpdateTime'] = this.notificationUpdateTime;
     data['notificationUserID'] = this.notificationUserID;
+    data['dismissTime'] = this.dismissTime;
+    data['dismissUserID'] = this.dismissUserID;
+    data['dismissUser'] = this.dismissUser;
     return data;
   }
 
