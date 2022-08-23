@@ -30,15 +30,13 @@ public class WorkMomentsManager: BaseServiceManager {
 }
 
 public class WorkMomentsListener: NSObject, Open_im_sdk_callbackOnWorkMomentsListenerProtocol {
-    
     private let channel:FlutterMethodChannel
 
     init(channel:FlutterMethodChannel) {
         self.channel = channel
     }
     
-    public func onRecvNewNotification() {
-        CommonUtil.emitEvent(channel: self.channel, method: "workMomentsListener", type: "OnRecvNewNotification", errCode: nil, errMsg: nil, data: nil)
+    public func onRecvNewNotification(_ message: String?) {
+        CommonUtil.emitEvent(channel: self.channel, method: "workMomentsListener", type: "OnRecvNewNotification", errCode: nil, errMsg: nil, data: message)
     }
-    
 }

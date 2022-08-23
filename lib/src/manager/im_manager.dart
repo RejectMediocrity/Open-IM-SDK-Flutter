@@ -275,7 +275,7 @@ class IMManager {
           String type = call.arguments['type'];
           switch (type) {
             case 'OnRecvNewNotification':
-              workMomentsManager.listener.recvNewNotification();
+              workMomentsManager.listener.recvNewNotification(type);
               break;
           }
         } else if (call.method == ListenerType.organizationListener) {
