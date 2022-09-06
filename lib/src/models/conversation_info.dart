@@ -54,6 +54,8 @@ class ConversationInfo {
   /// 是否还在组内，如果退群返回true
   bool? isNotInGroup;
 
+  bool? isAdmin;
+
   ConversationInfo({
     required this.conversationID,
     this.conversationType,
@@ -70,6 +72,7 @@ class ConversationInfo {
     this.isPrivateChat,
     this.isPinned,
     this.isNotInGroup,
+    this.isAdmin,
   });
 
   ConversationInfo.fromJson(Map<String, dynamic> json)
@@ -95,6 +98,7 @@ class ConversationInfo {
     isPrivateChat = json['isPrivateChat'];
     isNotInGroup = json['isNotInGroup'];
     groupAtType = json['groupAtType'];
+    isAdmin = json['isAdmin'];
   }
 
   Map<String, dynamic> toJson() {
@@ -115,6 +119,7 @@ class ConversationInfo {
     data['isPrivateChat'] = this.isPrivateChat;
     data['isNotInGroup'] = this.isNotInGroup;
     data['groupAtType'] = this.groupAtType;
+    data['isAdmin'] = this.isAdmin;
     return data;
   }
 
