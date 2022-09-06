@@ -26,6 +26,7 @@ public class ConversationManager: BaseServiceManager {
         self["getAtAllTag"] = getAtAllTag
         self["setGlobalRecvMessageOpt"] = setGlobalRecvMessageOpt
         self["resetConversationUnreadMsgTotal"] = resetConversationUnreadMsgTotal
+        self["getArchivedConversationList"] = getArchivedConversationList
     }
     
     func setConversationListener(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
@@ -35,6 +36,10 @@ public class ConversationManager: BaseServiceManager {
     
     func getAllConversationList(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
         Open_im_sdkGetAllConversationList(BaseCallback(result: result), methodCall[string: "operationID"])
+    }
+    
+    func getArchivedConversationList(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
+        Open_im_sdkGetArchivedConversationList(BaseCallback(result: result), methodCall[string: "operationID"])
     }
 
     func getConversationListSplit(methodCall: FlutterMethodCall, result: @escaping FlutterResult){

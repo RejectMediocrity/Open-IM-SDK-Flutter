@@ -170,4 +170,11 @@ public class ConversationManager extends BaseManager {
 
         );
     }
+
+    public void getArchivedConversationList(MethodCall methodCall, MethodChannel.Result result) {
+        Open_im_sdk.getArchivedConversationList(
+                new OnBaseListener(result, methodCall),
+                value(methodCall, "operationID")
+        );
+    }
 }

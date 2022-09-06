@@ -25,6 +25,18 @@ class ConversationManager {
           .then((value) =>
               Utils.toList(value, (map) => ConversationInfo.fromJson(map)));
 
+  /// 获取归档的会话列表
+  Future<List<ConversationInfo>> getArchivedConversationList(
+          {String? operationID}) =>
+      _channel
+          .invokeMethod(
+              'getArchivedConversationList',
+              _buildParam({
+                "operationID": Utils.checkOperationID(operationID),
+              }))
+          .then((value) =>
+              Utils.toList(value, (map) => ConversationInfo.fromJson(map)));
+
   /// 分页获取会话
   /// [offset] 开始下标
   /// [count] 每页数量
@@ -256,6 +268,7 @@ class ConversationManager {
             "conversationID": conversationID,
             "operationID": Utils.checkOperationID(operationID),
           }));
+
   /// 查询@所有人标识
   Future<dynamic> getAtAllTag() =>
       _channel.invokeMethod('getAtAllTag', _buildParam({}));
