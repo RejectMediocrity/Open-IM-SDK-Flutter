@@ -62,6 +62,8 @@ class GroupInfo {
   /// 归档群组用户名字
   String? dismissUser;
 
+  String? groupCode;
+
   GroupInfo({
     required this.groupID,
     this.groupName,
@@ -83,6 +85,7 @@ class GroupInfo {
     this.dismissTime,
     this.dismissUser,
     this.dismissUserID,
+    this.groupCode,
   });
 
   GroupInfo.fromJson(Map<String, dynamic> json) : groupID = json['groupID'] {
