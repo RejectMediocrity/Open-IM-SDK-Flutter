@@ -48,6 +48,8 @@ public class MessageManager: BaseServiceManager {
         self["newRevokeMessage"] = newRevokeMessage
         self["getRobotMessages"] = getRobotMessages
         self["sendUploadMessage"] = sendUploadMessage
+        self["getGroupFiles"] = getGroupFiles
+        self["getGroupPictureVideos"] = getGroupPictureVideos
     }
     
     func getRobotMessages(methodCall: FlutterMethodCall, result: @escaping FlutterResult) {
@@ -233,6 +235,15 @@ public class MessageManager: BaseServiceManager {
         let sendMsgProgressListener: SendMsgProgressListener = SendMsgProgressListener(channel: channel,result: result,methodCall: methodCall)
         Open_im_sdkSendUploadMessage(sendMsgProgressListener, methodCall[string: "operationID"], methodCall[jsonString: "message"])
     }
+    
+    func getGroupFiles(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
+        Open_im_sdkGetGroupFiles(BaseCallback(result: result), methodCall[string: "operationID"], methodCall[string: "groupID"], methodCall[string: "userID"], methodCall[int32: "count"], methodCall[int64: "startTime"])
+    }
+    
+    func getGroupPictureVideos(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
+        Open_im_sdkGetGroupPictureVideos(BaseCallback(result: result), methodCall[string: "operationID"], methodCall[string: "groupID"], methodCall[string: "userID"], methodCall[int32: "count"], methodCall[int64: "startTime"])
+    }
+
 }
 public class SendMsgProgressListener: NSObject, Open_im_sdk_callbackSendMsgCallBackProtocol {
     private let channel: FlutterMethodChannel

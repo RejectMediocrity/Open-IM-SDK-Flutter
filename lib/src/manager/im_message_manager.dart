@@ -776,7 +776,7 @@ class MessageManager {
           _buildParam({
             'userID': userID ?? '',
             'groupID': groupID ?? '',
-            'startTime': startTime ?? '',
+            'startTime': startTime ?? 0,
             'count': count ?? 20,
             'operationID': Utils.checkOperationID(operationID),
           }))
@@ -796,7 +796,7 @@ class MessageManager {
           _buildParam({
             'userID': userID ?? '',
             'groupID': groupID ?? '',
-            'startTime': startTime ?? '',
+            'startTime': startTime ?? 0,
             'count': count ?? 20,
             'operationID': Utils.checkOperationID(operationID),
           }))
