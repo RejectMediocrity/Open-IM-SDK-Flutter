@@ -761,4 +761,45 @@ class MessageManager {
             'operationID': Utils.checkOperationID(operationID),
           }))
           .then((value) => Utils.toObj(value, (map) => Message.fromJson(map)));
+
+  /// 获取群文件列表
+  Future<List<Message>> getGroupFiles({
+    String? userID,
+    String? groupID,
+    int? startTime,
+    int? count,
+    String? operationID,
+  }) =>
+      _channel
+          .invokeMethod(
+          'getGroupFiles',
+          _buildParam({
+            'userID': userID ?? '',
+            'groupID': groupID ?? '',
+            'startTime': startTime ?? '',
+            'count': count ?? 20,
+            'operationID': Utils.checkOperationID(operationID),
+          }))
+          .then((value) => Utils.toList(value, (map) => Message.fromJson(map)));
+
+  /// 获取群图片视频列表
+  Future<List<Message>> getGroupPictureVideos({
+    String? userID,
+    String? groupID,
+    int? startTime,
+    int? count,
+    String? operationID,
+  }) =>
+      _channel
+          .invokeMethod(
+          'getGroupPictureVideos',
+          _buildParam({
+            'userID': userID ?? '',
+            'groupID': groupID ?? '',
+            'startTime': startTime ?? '',
+            'count': count ?? 20,
+            'operationID': Utils.checkOperationID(operationID),
+          }))
+          .then((value) => Utils.toList(value, (map) => Message.fromJson(map)));
+
 }

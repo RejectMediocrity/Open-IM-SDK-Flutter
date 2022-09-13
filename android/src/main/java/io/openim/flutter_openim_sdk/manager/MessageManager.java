@@ -425,4 +425,26 @@ public class MessageManager extends BaseManager {
                 jsonValue(methodCall, "message")
         );
     }
+
+    public void getGroupFiles(MethodCall methodCall, MethodChannel.Result result) {
+        Open_im_sdk.getGroupFiles(
+                new OnBaseListener(result, methodCall),
+                value(methodCall, "operationID"),
+                value(methodCall, "groupID"),
+                value(methodCall, "userID"),
+                value(methodCall, "count"),
+                int2long(methodCall, "startTime")
+        );
+    }
+
+    public void getGroupPictureVideos(MethodCall methodCall, MethodChannel.Result result) {
+        Open_im_sdk.getGroupPictureVideos(
+                new OnBaseListener(result, methodCall),
+                value(methodCall, "userID"),
+                value(methodCall, "groupID"),
+                value(methodCall, "operationID"),
+                value(methodCall, "count"),
+                int2long(methodCall, "startTime")
+        );
+    }
 }

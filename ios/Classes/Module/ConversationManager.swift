@@ -27,6 +27,8 @@ public class ConversationManager: BaseServiceManager {
         self["setGlobalRecvMessageOpt"] = setGlobalRecvMessageOpt
         self["resetConversationUnreadMsgTotal"] = resetConversationUnreadMsgTotal
         self["getArchivedConversationList"] = getArchivedConversationList
+        self["getGroupFiles"] = getGroupFiles
+        self["getGroupPictureVideos"] = getGroupPictureVideos
     }
     
     func setConversationListener(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
@@ -40,6 +42,14 @@ public class ConversationManager: BaseServiceManager {
     
     func getArchivedConversationList(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
         Open_im_sdkGetArchivedConversationList(BaseCallback(result: result), methodCall[string: "operationID"])
+    }
+    
+    func getGroupFiles(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
+        Open_im_sdkGetGroupFiles(BaseCallback(result: result), methodCall[string: "operationID"], methodCall[string: "groupID"], methodCall[string: "userID"], methodCall[int32: "count"], methodCall[int64: "startTime"])
+    }
+    
+    func getGroupPictureVideos(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
+        Open_im_sdkGetGroupPictureVideos(BaseCallback(result: result), methodCall[string: "operationID"], methodCall[string: "groupID"], methodCall[string: "userID"], methodCall[int32: "count"], methodCall[int64: "startTime"])
     }
 
     func getConversationListSplit(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
