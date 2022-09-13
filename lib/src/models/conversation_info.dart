@@ -56,6 +56,8 @@ class ConversationInfo {
 
   bool? isAdmin;
 
+  bool? meeting;
+
   ConversationInfo({
     required this.conversationID,
     this.conversationType,
@@ -73,6 +75,7 @@ class ConversationInfo {
     this.isPinned,
     this.isNotInGroup,
     this.isAdmin,
+    this.meeting,
   });
 
   ConversationInfo.fromJson(Map<String, dynamic> json)
@@ -99,6 +102,7 @@ class ConversationInfo {
     isNotInGroup = json['isNotInGroup'];
     groupAtType = json['groupAtType'];
     isAdmin = json['isAdmin'];
+    meeting = json['meeting'];
   }
 
   Map<String, dynamic> toJson() {
@@ -120,6 +124,7 @@ class ConversationInfo {
     data['isNotInGroup'] = this.isNotInGroup;
     data['groupAtType'] = this.groupAtType;
     data['isAdmin'] = this.isAdmin;
+    data['meeting'] = this.meeting;
     return data;
   }
 
