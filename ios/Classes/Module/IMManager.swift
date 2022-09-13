@@ -38,6 +38,10 @@ public class IMMananger: BaseServiceManager {
 }
 
 public class ConnListener: NSObject, Open_im_sdk_callbackOnConnListenerProtocol {
+    public func onOrgTreeNotice(_ operationID: String?, data: Data?) {
+        
+    }
+    
     /// PC 专用
     public func onKickedFromMobile() {
         

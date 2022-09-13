@@ -27,6 +27,11 @@ public class OnConnListener implements open_im_sdk_callback.OnConnListener {
     }
 
     @Override
+    public void onOrgTreeNotice(String s, byte[] bytes) {
+
+    }
+
+    @Override
     public void onUserTokenExpired() {
         CommonUtil.emitEvent("connectListener", "onUserTokenExpired", null);
     }
