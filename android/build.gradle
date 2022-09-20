@@ -58,5 +58,5 @@ android {
     }
 }
 dependencies {
-    implementation 'com.mind:AndroidSDK:2.3.1.9'
+    implementation 'com.mind:AndroidSDK:2.3.2.0'
 }
