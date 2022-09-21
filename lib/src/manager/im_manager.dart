@@ -60,6 +60,10 @@ class IMManager {
             case 'onUserSigExpired':
               _connectListener.userSigExpired();
               break;
+            case 'onOrgTreeNotice':
+              dynamic data = call.arguments['data'];
+              _connectListener.orgTreeNotice(data);
+              break;
           }
         } else if (call.method == ListenerType.userListener) {
           String type = call.arguments['type'];

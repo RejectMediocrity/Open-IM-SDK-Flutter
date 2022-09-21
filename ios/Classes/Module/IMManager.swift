@@ -39,12 +39,12 @@ public class IMMananger: BaseServiceManager {
 
 public class ConnListener: NSObject, Open_im_sdk_callbackOnConnListenerProtocol {
     public func onOrgTreeNotice(_ operationID: String?, data: Data?) {
-        
+        CommonUtil.emitEvent(channel: self.channel, method: "connectListener", type: "onOrgTreeNotice", errCode: nil, errMsg: nil, data: data)
     }
     
     /// PC 专用
     public func onKickedFromMobile() {
-        
+
     }
     
     public func onUpgradeNotice() {

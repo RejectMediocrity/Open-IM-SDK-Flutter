@@ -28,7 +28,7 @@ public class OnConnListener implements open_im_sdk_callback.OnConnListener {
 
     @Override
     public void onOrgTreeNotice(String s, byte[] bytes) {
-
+        CommonUtil.emitEvent("connectListener", "onOrgTreeNotice", null, s, bytes);
     }
 
     @Override

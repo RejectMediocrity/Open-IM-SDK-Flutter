@@ -5,6 +5,7 @@ class OnConnectListener {
   Function()? onConnecting;
   Function()? onKickedOffline;
   Function()? onUserSigExpired;
+  Function(dynamic data)? onOrgTreeNotice;
 
   OnConnectListener({
     this.onConnectFailed,
@@ -12,6 +13,7 @@ class OnConnectListener {
     this.onConnecting,
     this.onKickedOffline,
     this.onUserSigExpired,
+    this.onOrgTreeNotice,
   });
 
   /// SDK连接服务器失败
@@ -38,4 +40,10 @@ class OnConnectListener {
   void userSigExpired() {
     if (null != onUserSigExpired) onUserSigExpired!();
   }
+
+  ///  登录凭证过期，需要重新登录
+  void orgTreeNotice(dynamic data) {
+    if (null != onOrgTreeNotice) onOrgTreeNotice!(data);
+  }
+  
 }
