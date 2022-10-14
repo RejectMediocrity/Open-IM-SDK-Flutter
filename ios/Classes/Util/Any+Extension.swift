@@ -15,9 +15,10 @@ public func typeName(_ obj: Any) -> String {
 }
 
 public func safeMainAsync(_ work: @escaping @convention(block) () -> Void) {
-    if Thread.isMainThread {
-        work()
-    } else {
-        DispatchQueue.main.async(execute: work)
-    }
+    work()
+    //    if Thread.isMainThread {
+    //        work()
+    //    } else {
+    //        DispatchQueue.main.async(execute: work)
+    //    }
 }
