@@ -996,6 +996,9 @@ class RevokedInfo {
   /// 会话类型 [ConversationType]
   int? sessionType;
 
+  int? revokeTimeMillisecond;
+  int? sourceContentType;
+
   RevokedInfo({
     this.revokerID,
     this.revokerRole,
@@ -1006,6 +1009,8 @@ class RevokedInfo {
     this.sourceMessageSendID,
     this.sourceMessageSenderNickname,
     this.sessionType,
+    this.revokeTimeMillisecond,
+    this.sourceContentType,
   });
 
   RevokedInfo.fromJson(Map<String, dynamic> json) {
@@ -1018,6 +1023,11 @@ class RevokedInfo {
     sourceMessageSendID = json['sourceMessageSendID'];
     sourceMessageSenderNickname = json['sourceMessageSenderNickname'];
     sessionType = json['sessionType'];
+    revokeTimeMillisecond = json.containsKey('revokeTimeMillisecond')
+        ? json['revokeTimeMillisecond']
+        : revokeTime;
+    sourceContentType =
+        json.containsKey("sourceContentType") ? json['sourceContentType'] : 0;
   }
 
   Map<String, dynamic> toJson() {
@@ -1031,6 +1041,8 @@ class RevokedInfo {
     data['sourceMessageSendID'] = this.sourceMessageSendID;
     data['sourceMessageSenderNickname'] = this.sourceMessageSenderNickname;
     data['sessionType'] = this.sessionType;
+    data['revokeTimeMillisecond'] = this.revokeTimeMillisecond;
+    data['sourceContentType'] = this.sourceContentType;
     return data;
   }
 }
