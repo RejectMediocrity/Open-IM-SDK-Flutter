@@ -54,62 +54,62 @@ public class SignalingManager extends BaseManager {
                 jsonValue(methodCall, "signalingInfo"));
     }
 
-    public void signalingGetRoomByGroupID(MethodCall methodCall, MethodChannel.Result result) {
-        Open_im_sdk.signalingGetRoomByGroupID(
-                new OnBaseListener(result, methodCall),
-                value(methodCall, "operationID"),
-                value(methodCall, "groupID"));
-    }
+//    public void signalingGetRoomByGroupID(MethodCall methodCall, MethodChannel.Result result) {
+//        Open_im_sdk.signalingGetRoomByGroupID(
+//                new OnBaseListener(result, methodCall),
+//                value(methodCall, "operationID"),
+//                value(methodCall, "groupID"));
+//    }
 
-    public void signalingGetTokenByRoomID(MethodCall methodCall, MethodChannel.Result result) {
-        Open_im_sdk.signalingGetTokenByRoomID(
-                new OnBaseListener(result, methodCall),
-                value(methodCall, "operationID"),
-                value(methodCall, "roomID"));
-    }
+//    public void signalingGetTokenByRoomID(MethodCall methodCall, MethodChannel.Result result) {
+//        Open_im_sdk.signalingGetTokenByRoomID(
+//                new OnBaseListener(result, methodCall),
+//                value(methodCall, "operationID"),
+//                value(methodCall, "roomID"));
+//    }
 
-    public void signalingUpdateMeetingInfo(MethodCall methodCall, MethodChannel.Result result) {
-        Open_im_sdk.signalingUpdateMeetingInfo(
-                new OnBaseListener(result, methodCall),
-                value(methodCall, "operationID"),
-                jsonValue(methodCall, "info"));
-    }
+//    public void signalingUpdateMeetingInfo(MethodCall methodCall, MethodChannel.Result result) {
+//        Open_im_sdk.signalingUpdateMeetingInfo(
+//                new OnBaseListener(result, methodCall),
+//                value(methodCall, "operationID"),
+//                jsonValue(methodCall, "info"));
+//    }
 
-    public void signalingCreateMeeting(MethodCall methodCall, MethodChannel.Result result) {
-        Open_im_sdk.signalingCreateMeeting(
-                new OnBaseListener(result, methodCall),
-                value(methodCall, "operationID"),
-                jsonValue(methodCall, "info"));
-    }
+//    public void signalingCreateMeeting(MethodCall methodCall, MethodChannel.Result result) {
+//        Open_im_sdk.signalingCreateMeeting(
+//                new OnBaseListener(result, methodCall),
+//                value(methodCall, "operationID"),
+//                jsonValue(methodCall, "info"));
+//    }
 
-    public void signalingJoinMeeting(MethodCall methodCall, MethodChannel.Result result) {
-        Open_im_sdk.signalingJoinMeeting(
-                new OnBaseListener(result, methodCall),
-                value(methodCall, "operationID"),
-                jsonValue(methodCall, "info"));
-    }
+//    public void signalingJoinMeeting(MethodCall methodCall, MethodChannel.Result result) {
+//        Open_im_sdk.signalingJoinMeeting(
+//                new OnBaseListener(result, methodCall),
+//                value(methodCall, "operationID"),
+//                jsonValue(methodCall, "info"));
+//    }
 
-    public void signalingOperateStream(MethodCall methodCall, MethodChannel.Result result) {
-        Open_im_sdk.signalingOperateStream(
-                new OnBaseListener(result, methodCall),
-                value(methodCall, "operationID"),
-                value(methodCall, "streamType"),
-                value(methodCall, "roomID"),
-                value(methodCall, "userID"),
-                value(methodCall, "mute"),
-                value(methodCall, "muteAll"));
-    }
+//    public void signalingOperateStream(MethodCall methodCall, MethodChannel.Result result) {
+//        Open_im_sdk.signalingOperateStream(
+//                new OnBaseListener(result, methodCall),
+//                value(methodCall, "operationID"),
+//                value(methodCall, "streamType"),
+//                value(methodCall, "roomID"),
+//                value(methodCall, "userID"),
+//                value(methodCall, "mute"),
+//                value(methodCall, "muteAll"));
+//    }
 
-    public void signalingGetMeetings(MethodCall methodCall, MethodChannel.Result result) {
-        Open_im_sdk.signalingGetMeetings(
-                new OnBaseListener(result, methodCall),
-                value(methodCall, "operationID"));
-    }
+//    public void signalingGetMeetings(MethodCall methodCall, MethodChannel.Result result) {
+//        Open_im_sdk.signalingGetMeetings(
+//                new OnBaseListener(result, methodCall),
+//                value(methodCall, "operationID"));
+//    }
 
-    public void signalingCloseRoom(MethodCall methodCall, MethodChannel.Result result) {
-        Open_im_sdk.signalingCloseRoom(
-                new OnBaseListener(result, methodCall),
-                value(methodCall, "operationID"),
-                value(methodCall, "roomID"));
-    }
+//    public void signalingCloseRoom(MethodCall methodCall, MethodChannel.Result result) {
+//        Open_im_sdk.signalingCloseRoom(
+//                new OnBaseListener(result, methodCall),
+//                value(methodCall, "operationID"),
+//                value(methodCall, "roomID"));
+//    }
 }
