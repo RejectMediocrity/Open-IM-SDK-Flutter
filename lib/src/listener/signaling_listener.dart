@@ -1,4 +1,4 @@
-import 'package:flutter_openim_sdk/src/models/signaling_info.dart';
+import 'package:flutter_openim_sdk/flutter_openim_sdk.dart';
 
 /// 信令监听
 class OnSignalingListener {
@@ -10,6 +10,9 @@ class OnSignalingListener {
   final Function(SignalingInfo info)? onInviteeRejectedByOtherDevice;
   final Function(SignalingInfo info)? onInviteeAcceptedByOtherDevice;
   final Function(SignalingInfo info)? onHangup;
+  final Function(RoomCallingInfo info)? onRoomParticipantConnected;
+  final Function(RoomCallingInfo info)? onRoomParticipantDisconnected;
+  final Function(MeetingStreamEvent event)? onMeetingStreamChanged;
 
   OnSignalingListener({
     this.onInvitationCancelled,
@@ -20,6 +23,9 @@ class OnSignalingListener {
     this.onInviteeAcceptedByOtherDevice,
     this.onInviteeRejectedByOtherDevice,
     this.onHangup,
+    this.onRoomParticipantConnected,
+    this.onRoomParticipantDisconnected,
+    this.onMeetingStreamChanged,
   });
 
   /// 被邀请者收到：邀请者取消音视频通话
@@ -60,5 +66,17 @@ class OnSignalingListener {
   /// 被挂断
   void hangup(SignalingInfo info) {
     onHangup?.call(info);
+  }
+
+  void roomParticipantConnected(RoomCallingInfo info) {
+    onRoomParticipantConnected?.call(info);
+  }
+
+  void roomParticipantDisconnected(RoomCallingInfo info) {
+    onRoomParticipantDisconnected?.call(info);
+  }
+
+  void streamChangedEvent(MeetingStreamEvent event) {
+    onMeetingStreamChanged?.call(event);
   }
 }

@@ -1,3 +1,51 @@
+## 2.3.4+2
+
+- Add streamChangedEvent listener for OnSignalingListener
+- Add signalingJoinMeeting method for SignalingManager
+- Add signalingCreateMeeting method for SignalingManager
+- Add signalingOperateStream method for SignalingManager
+- Add signalingGetMeetings method for SignalingManager
+- Add signalingCloseRoom method for SignalingManager
+- Add signalingUpdateMeetingInfo method for SignalingManager
+- Update findMessageList method
+- Add sendMessageNotOss method for MessageManager
+- Add createImageMessageByURL method for MessageManager
+- Add createSoundMessageByURL method for MessageManager
+- Add createVideoMessageByURL method for MessageManager
+- Add createFileMessageByURL method for MessageManager
+
+## 2.3.4+1
+
+- Add signalingGetTokenByRoomID method for SignalingManager
+
+## 2.3.4
+
+- Fix bug
+- Add signalGetRoomByGroupID method for SignalingManager
+- Add class RoomCallingInfo
+- Add onRoomParticipantConnected listener for OnSignalingListener
+- Add onRoomParticipantDisconnected listener for OnSignalingListener
+- Add busyLineUserIDList field for SignalingCertificate
+
+## 2.3.3
+
+- Fix bug
+
+## 2.3.2
+
+- Fix bug
+- Add createAdvancedQuoteMessage method for MessageManager
+- Add createAdvancedTextMessage method for MessageManager
+
+## 2.3.0+1
+
+- Fix bug
+- enum class MessageType new add customMsgNotTriggerConversation
+- enum class MessageType new add customMsgOnlineOnly
+- class IMManager new add updateFcmToken method
+- class MessageManager new add findMessageList method
+- initSDK method add encryptionKey param
+
 ## 2.3.0
 
 - Fix bug
@@ -14,6 +62,10 @@
 - Add joinSource field for joinGroup method
 - Add advanced revoke type
 - Add recvMessageRevokedV2 callback for OnAdvancedMsgListener
+- Add joinSource field for GroupApplicationInfo
+- Add inviterUserID field for GroupApplicationInfo
+- Add getAdvancedHistoryMessageList method for MessageManager
+- Add searchGroupMembers method for GroupManager
 
 ## 2.2.0
 
@@ -176,33 +228,42 @@ Fix bug
 2. Add createFileMessageFromFullPath method
 
 ## 0.0.9+4
+
 Fix ios friendship params error
 
 ## 0.0.9+3
+
 Ios native remove method 'removeAdvancedMsgListener'
 
 ## 0.0.9+2
+
 1. Fix bug
 2. Upgrade sdk
 
 ## 0.0.9+1
+
 Fix bug
 
 ## 0.0.9
+
 Add ios support
 
 ## 0.0.8
+
 Upgrade sdk to 0.0.14 </br>
 Sending a message adds a retry mechanism
 
 ## 0.0.7
+
 1. Add a new method to obtain conversation id based on user id or group id </br>
 2. Modify the type of conversation manager input parameter sessionType to int
 
 ## 0.0.6
+
 Fix bug
 
 ## 0.0.5
+
 Upgrade sdk </br>
 Fix message error bug
 
@@ -211,11 +272,14 @@ Fix message error bug
 Replace the input parameters of the createCustomMessage method from Uint8List to Map
 
 ## 0.0.3
+
 Upgrade sdk </br>
 Fix bug </br>
 
 ## 0.0.2
-1. Move the markSingleMessageHasRead, markGroupMessageHasRead and getTotalUnreadMsgCount methods from the MessageManager class to the ConversationManager class. </br>
+
+1. Move the markSingleMessageHasRead, markGroupMessageHasRead and getTotalUnreadMsgCount methods
+   from the MessageManager class to the ConversationManager class. </br>
 2. Modify the parameters of the setFriendInfo method. </br>
 3. Modify the parameters of the createGroup and setGroupInfo methods.
 

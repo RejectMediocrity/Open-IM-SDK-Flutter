@@ -700,6 +700,180 @@ class MessageManager {
               "operationID": Utils.checkOperationID(operationID),
             })));
 
+  /// 获取聊天记录(以startMsg为节点，以前的聊天记录)
+  /// [userID] 接收消息的用户id
+  /// [conversationID] 会话id，查询通知时可用
+  /// [groupID] 接收消息的组id
+  /// [startMsg] 从这条消息开始查询[count]条，获取的列表index==length-1为最新消息，所以获取下一页历史记录startMsg=list.first
+  /// [count] 一次拉取的总数
+  /// [lastMinSeq] 第一页消息不用传，获取第二页开始必传 跟[startMsg]一样
+  Future<AdvancedMessage> getAdvancedHistoryMessageList({
+    String? userID,
+    String? groupID,
+    String? conversationID,
+    int? lastMinSeq,
+    Message? startMsg,
+    int? count,
+    String? operationID,
+  }) =>
+      _channel
+          .invokeMethod(
+              'getAdvancedHistoryMessageList',
+              _buildParam({
+                'userID': userID ?? '',
+                'groupID': groupID ?? '',
+                'conversationID': conversationID ?? '',
+                'startClientMsgID': startMsg?.clientMsgID ?? '',
+                'count': count ?? 40,
+                'lastMinSeq': lastMinSeq ?? 0,
+                'operationID': Utils.checkOperationID(operationID),
+              }))
+          .then((value) =>
+              Utils.toObj(value, (map) => AdvancedMessage.fromJson(map)));
+
+  /// 查找消息详细
+  /// [conversationID] 会话id
+  /// [clientMsgIDList] 消息id列表
+  Future<SearchResult> findMessageList({
+    required List<SearchParams> searchParams,
+    String? operationID,
+  }) =>
+      _channel
+          .invokeMethod(
+              'findMessageList',
+              _buildParam({
+                'searchParams': searchParams.map((e) => e.toJson()),
+                'operationID': Utils.checkOperationID(operationID),
+              }))
+          .then((value) =>
+              Utils.toObj(value, (map) => SearchResult.fromJson(value)));
+
+  /// 富文本消息
+  /// [text] 输入内容
+  /// [list] 富文本消息具体详细
+  Future<Message> createAdvancedTextMessage({
+    required String text,
+    List<RichMessageInfo> list = const [],
+    String? operationID,
+  }) =>
+      _channel
+          .invokeMethod(
+            'createAdvancedTextMessage',
+            _buildParam({
+              'text': text,
+              'richMessageInfoList': list.map((e) => e.toJson()).toList(),
+              "operationID": Utils.checkOperationID(operationID),
+            }),
+          )
+          .then((value) => Utils.toObj(value, (map) => Message.fromJson(map)));
+
+  /// 富文本消息
+  /// [text] 回复的内容
+  /// [quoteMsg] 被回复的消息
+  /// [list] 富文本消息具体详细
+  Future<Message> createAdvancedQuoteMessage({
+    required String text,
+    required Message quoteMsg,
+    List<RichMessageInfo> list = const [],
+    String? operationID,
+  }) =>
+      _channel
+          .invokeMethod(
+              'createAdvancedQuoteMessage',
+              _buildParam({
+                'quoteText': text,
+                'quoteMessage': quoteMsg.toJson(),
+                'richMessageInfoList': list.map((e) => e.toJson()).toList(),
+                "operationID": Utils.checkOperationID(operationID),
+              }))
+          .then((value) => Utils.toObj(value, (map) => Message.fromJson(map)));
+
+  /// 发送消息
+  /// [message] 消息体 [createImageMessageByURL],[createSoundMessageByURL],[createVideoMessageByURL],[createFileMessageByURL]
+  /// [userID] 接收消息的用户id
+  /// [groupID] 接收消息的组id
+  /// [offlinePushInfo] 离线消息显示内容
+  Future<Message> sendMessageNotOss({
+    required Message message,
+    required OfflinePushInfo offlinePushInfo,
+    String? userID,
+    String? groupID,
+    String? operationID,
+  }) =>
+      _channel
+          .invokeMethod(
+              'sendMessageNotOss',
+              _buildParam({
+                'message': message.toJson(),
+                'offlinePushInfo': offlinePushInfo.toJson(),
+                'userID': userID ?? '',
+                'groupID': groupID ?? '',
+                'operationID': Utils.checkOperationID(operationID),
+              }))
+          .then((value) => Utils.toObj(value, (map) => Message.fromJson(map)));
+
+  /// 创建图片消息
+  Future<Message> createImageMessageByURL({
+    required PictureInfo sourcePicture,
+    required PictureInfo bigPicture,
+    required PictureInfo snapshotPicture,
+    String? operationID,
+  }) =>
+      _channel
+          .invokeMethod(
+            'createImageMessageByURL',
+            _buildParam({
+              'sourcePicture': sourcePicture,
+              'bigPicture': bigPicture,
+              'snapshotPicture': snapshotPicture,
+              "operationID": Utils.checkOperationID(operationID),
+            }),
+          )
+          .then((value) => Utils.toObj(value, (map) => Message.fromJson(map)));
+
+  /// 创建语音消息
+  Future<Message> createSoundMessageByURL({
+    required SoundElem soundElem,
+    String? operationID,
+  }) =>
+      _channel
+          .invokeMethod(
+            'createSoundMessageByURL',
+            _buildParam({
+              'soundElem': soundElem,
+              "operationID": Utils.checkOperationID(operationID),
+            }),
+          )
+          .then((value) => Utils.toObj(value, (map) => Message.fromJson(map)));
+
+  /// 创建视频消息
+  Future<Message> createVideoMessageByURL({
+    required VideoElem videoElem,
+    String? operationID,
+  }) =>
+      _channel
+          .invokeMethod(
+              'createVideoMessageByURL',
+              _buildParam({
+                'videoElem': videoElem,
+                "operationID": Utils.checkOperationID(operationID),
+              }))
+          .then((value) => Utils.toObj(value, (map) => Message.fromJson(map)));
+
+  /// 创建视频消息
+  Future<Message> createFileMessageByURL({
+    required FileElem fileElem,
+    String? operationID,
+  }) =>
+      _channel
+          .invokeMethod(
+              'createFileMessageByURL',
+              _buildParam({
+                'fileElem': fileElem,
+                "operationID": Utils.checkOperationID(operationID),
+              }))
+          .then((value) => Utils.toObj(value, (map) => Message.fromJson(map)));
+
   static Map _buildParam(Map param) {
     param["ManagerName"] = "messageManager";
     return param;

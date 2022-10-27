@@ -1046,3 +1046,75 @@ class RevokedInfo {
     return data;
   }
 }
+
+class AdvancedMessage {
+  List<Message>? messageList;
+  bool? isEnd;
+  int? errCode;
+  String? errMsg;
+  int? lastMinSeq;
+
+  AdvancedMessage({
+    this.messageList,
+    this.isEnd,
+    this.errCode,
+    this.errMsg,
+    this.lastMinSeq,
+  });
+
+  AdvancedMessage.fromJson(Map<String, dynamic> json) {
+    messageList = json['messageList'] == null
+        ? null
+        : (json['messageList'] as List)
+            .map((e) => Message.fromJson(e))
+            .toList();
+    isEnd = json['isEnd'];
+    errCode = json['errCode'];
+    errMsg = json['errMsg'];
+    lastMinSeq = json['lastMinSeq'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final data = Map<String, dynamic>();
+    data['messageList'] = this.messageList?.map((e) => e.toJson()).toList();
+    data['isEnd'] = this.isEnd;
+    data['errCode'] = this.errCode;
+    data['errMsg'] = this.errMsg;
+    data['lastMinSeq'] = this.lastMinSeq;
+    return data;
+  }
+}
+
+class RichMessageInfo {
+  String? type;
+  int? offset;
+  int? length;
+  String? url;
+  String? info;
+
+  RichMessageInfo({
+    this.type,
+    this.offset,
+    this.length,
+    this.url,
+    this.info,
+  });
+
+  RichMessageInfo.fromJson(Map<String, dynamic> json) {
+    type = json['type'];
+    offset = json['offset'];
+    length = json['length'];
+    url = json['url'];
+    info = json['info'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final data = Map<String, dynamic>();
+    data['type'] = this.type;
+    data['offset'] = this.offset;
+    data['length'] = this.length;
+    data['url'] = this.url;
+    data['info'] = this.info;
+    return data;
+  }
+}
