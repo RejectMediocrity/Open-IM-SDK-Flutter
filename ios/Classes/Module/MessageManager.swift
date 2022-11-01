@@ -199,8 +199,8 @@ public class MessageManager: BaseServiceManager {
     }
     
     func createAdvancedQuoteMessage(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
-        let prama = Open_im_sdkCreateAdvancedQuoteMessage(methodCall[string: "operationID"], methodCall[string: "quoteText"], methodCall[jsonString: "quoteMessage"], methodCall[jsonString: "richMessageInfoList"])
-        callBack(result, prama)
+//        let prama = Open_im_sdkCreateAdvancedQuoteMessage(methodCall[string: "operationID"], methodCall[string: "quoteText"], methodCall[jsonString: "quoteMessage"], methodCall[jsonString: "richMessageInfoList"])
+//        callBack(result, prama)
     }
     
     func clearC2CHistoryMessage(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
@@ -264,11 +264,11 @@ public class MessageManager: BaseServiceManager {
     }
 
     func getAdvancedHistoryMessageList(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
-        Open_im_sdkGetAdvancedHistoryMessageList(BaseCallback(result: result), methodCall[string: "operationID"], methodCall.toJsonString())
+//        Open_im_sdkGetAdvancedHistoryMessageList(BaseCallback(result: result), methodCall[string: "operationID"], methodCall.toJsonString())
     }
     
     func findMessageList(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
-        Open_im_sdkFindMessageList(BaseCallback(result: result), methodCall[string: "operationID"], methodCall[jsonString: "searchParams"])
+//        Open_im_sdkFindMessageList(BaseCallback(result: result), methodCall[string: "operationID"], methodCall[jsonString: "searchParams"])
     }
     
     func sendMessageNotOss(methodCall: FlutterMethodCall, result: @escaping FlutterResult){

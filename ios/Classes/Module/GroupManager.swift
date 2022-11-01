@@ -148,7 +148,7 @@ public class GroupManager: BaseServiceManager {
     }
     
     func searchGroupMembers(methodCall: FlutterMethodCall, result: @escaping FlutterResult){
-        Open_im_sdkSearchGroupMembers(BaseCallback(result: result), methodCall[string: "operationID"], methodCall[jsonString: "searchParam"])
+//        Open_im_sdkSearchGroupMembers(BaseCallback(result: result), methodCall[string: "operationID"], methodCall[jsonString: "searchParam"])
     }
 }
 
