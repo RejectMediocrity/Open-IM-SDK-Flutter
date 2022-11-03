@@ -54,19 +54,19 @@ public class SignalingManager extends BaseManager {
                 jsonValue(methodCall, "signalingInfo"));
     }
 
-//    public void signalingGetRoomByGroupID(MethodCall methodCall, MethodChannel.Result result) {
-//        Open_im_sdk.signalingGetRoomByGroupID(
-//                new OnBaseListener(result, methodCall),
-//                value(methodCall, "operationID"),
-//                value(methodCall, "groupID"));
-//    }
+    public void signalingGetRoomByGroupID(MethodCall methodCall, MethodChannel.Result result) {
+        Open_im_sdk.signalingGetRoomByGroupID(
+                new OnBaseListener(result, methodCall),
+                value(methodCall, "operationID"),
+                value(methodCall, "groupID"));
+    }
 
-//    public void signalingGetTokenByRoomID(MethodCall methodCall, MethodChannel.Result result) {
-//        Open_im_sdk.signalingGetTokenByRoomID(
-//                new OnBaseListener(result, methodCall),
-//                value(methodCall, "operationID"),
-//                value(methodCall, "roomID"));
-//    }
+    public void signalingGetTokenByRoomID(MethodCall methodCall, MethodChannel.Result result) {
+        Open_im_sdk.signalingGetTokenByRoomID(
+                new OnBaseListener(result, methodCall),
+                value(methodCall, "operationID"),
+                value(methodCall, "roomID"));
+    }
 
 //    public void signalingUpdateMeetingInfo(MethodCall methodCall, MethodChannel.Result result) {
 //        Open_im_sdk.signalingUpdateMeetingInfo(
